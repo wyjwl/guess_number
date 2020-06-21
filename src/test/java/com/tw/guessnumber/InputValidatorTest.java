@@ -11,4 +11,11 @@ public class InputValidatorTest {
     InputValidator inputValidator = new InputValidator();
     assertFalse(inputValidator.isValid("12345"));
   }
+
+  @Test
+  public void shouldReturnFalseWhenInputContainsNonDigitCharacter() {
+    InputValidator inputValidator = new InputValidator();
+    assertFalse(inputValidator.isValid("a444"));
+  }
+
 }
