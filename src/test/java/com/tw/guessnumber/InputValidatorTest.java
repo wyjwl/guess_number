@@ -27,4 +27,10 @@ public class InputValidatorTest {
     InputValidator inputValidator = new InputValidator();
     assertFalse(inputValidator.isValid("4465"));
   }
+
+  @Test
+  public void shouldReturnTrueWhenInputIsValid() {
+    InputValidator inputValidator = new InputValidator();
+    assertTrue(inputValidator.isValid("9834"));
+  }
 }
