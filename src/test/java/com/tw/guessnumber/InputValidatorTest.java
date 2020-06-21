@@ -15,7 +15,7 @@ public class InputValidatorTest {
   @Test
   public void shouldReturnFalseWhenInputContainsNonDigitCharacter() {
     InputValidator inputValidator = new InputValidator();
-    assertFalse(inputValidator.isValid("a444"));
+    assertFalse(inputValidator.isValid("af43"));
   }
 
 }
