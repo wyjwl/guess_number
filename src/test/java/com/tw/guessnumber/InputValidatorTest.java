@@ -9,7 +9,11 @@ public class InputValidatorTest {
   @Test
   public void shouldReturnFalseWhenInputLengthIsNotEqual4() {
     InputValidator inputValidator = new InputValidator();
+    assertFalse(inputValidator.isValid("1"));
+    assertFalse(inputValidator.isValid("12"));
+    assertFalse(inputValidator.isValid("123"));
     assertFalse(inputValidator.isValid("12345"));
+    assertFalse(inputValidator.isValid("123456"));
   }
 
   @Test
