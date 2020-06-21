@@ -41,18 +41,26 @@ public class ResultGeneratorTest {
     ResultGenerator resultGenerator = new ResultGenerator();
     assertEquals("0A3B", resultGenerator.getResult("7569", answer));
     assertEquals("0A3B", resultGenerator.getResult("4760", answer));
-    assertEquals("0A3B", resultGenerator.getResult("4658", answer));
-    assertEquals("0A3B", resultGenerator.getResult("0674", answer));
+    assertEquals("0A3B", resultGenerator.getResult("6458", answer));
+    assertEquals("0A3B", resultGenerator.getResult("6074", answer));
   }
-
 
   @Test
   public void shouldReturn0A4BWhen0NumberPositionMatchAnd4NumberMatchPositionNotMatch() {
     ResultGenerator resultGenerator = new ResultGenerator();
-    assertEquals("0A4B", resultGenerator.getResult("4567", answer));
+    assertEquals("0A4B", resultGenerator.getResult("4576", answer));
     assertEquals("0A4B", resultGenerator.getResult("4576", answer));
     assertEquals("0A4B", resultGenerator.getResult("7456", answer));
     assertEquals("0A4B", resultGenerator.getResult("6574", answer));
+  }
+
+  @Test
+  public void shouldReturn1A0BWhen1NumberPositionMatchAnd0NumberMatchPositionNotMatch() {
+    ResultGenerator resultGenerator = new ResultGenerator();
+    assertEquals("1A0B", resultGenerator.getResult("5981", answer));
+    assertEquals("1A0B", resultGenerator.getResult("9681", answer));
+    assertEquals("1A0B", resultGenerator.getResult("8940", answer));
+    assertEquals("1A0B", resultGenerator.getResult("3217", answer));
   }
 
 
