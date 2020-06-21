@@ -14,13 +14,15 @@ public class NumberGeneratorTest {
   public void shouldGenerateResultWith4DigitString() {
     NumberGenerator numberGenerator = new NumberGenerator();
     String generatedNumberString = numberGenerator.generate4DigitUnrepeatedNumberString();
+
     assertEquals(4, generatedNumberString.length());
   }
 
   @Test
-  public void shouldGenerateResultWithOnlyPositiveNumbers() {
+  public void shouldGenerateResultWithOnlyNumbers() {
     NumberGenerator numberGenerator = new NumberGenerator();
     String generatedNumberString = numberGenerator.generate4DigitUnrepeatedNumberString();
+
     String numberRegex = "\\d+";
     assertTrue(generatedNumberString.matches(numberRegex));
   }
@@ -29,10 +31,27 @@ public class NumberGeneratorTest {
   public void shouldGenerateResultWithoutDuplication() {
     NumberGenerator numberGenerator = new NumberGenerator();
     String generatedNumberString = numberGenerator.generate4DigitUnrepeatedNumberString();
+
     Set<Character> characterSet = new HashSet<>();
-    for(int index = 0; index < generatedNumberString.length(); index++){
+    for (int index = 0; index < generatedNumberString.length(); index++) {
       characterSet.add(generatedNumberString.charAt(index));
     }
     assertEquals(4, characterSet.size());
+  }
+
+  @Test
+  public void shouldNotAlwaysGenerateSameResult() {
+    NumberGenerator numberGenerator = new NumberGenerator();
+    String generatedNumberString1 = numberGenerator.generate4DigitUnrepeatedNumberString();
+    String generatedNumberString2 = numberGenerator.generate4DigitUnrepeatedNumberString();
+    String generatedNumberString3 = numberGenerator.generate4DigitUnrepeatedNumberString();
+
+    Set<String> stringSet = new HashSet<>();
+
+    stringSet.add(generatedNumberString1);
+    stringSet.add(generatedNumberString2);
+    stringSet.add(generatedNumberString3);
+
+    assertTrue(stringSet.size() >= 2);
   }
 }
