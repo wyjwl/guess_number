@@ -18,4 +18,9 @@ public class InputValidatorTest {
     assertFalse(inputValidator.isValid("af43"));
   }
 
+  @Test
+  public void shouldReturnFalseWhenInputHasDuplication() {
+    InputValidator inputValidator = new InputValidator();
+    assertFalse(inputValidator.isValid("4465"));
+  }
 }
