@@ -1,5 +1,7 @@
 package com.tw.guessnumber;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -19,6 +21,8 @@ public class GuessNumber {
 
     Scanner input = new Scanner(System.in);
 
+    List<String> history = new ArrayList<>();
+
     while (remainTimes > 0) {
       userString = input.nextLine();
 
@@ -31,10 +35,13 @@ public class GuessNumber {
       String result = resultGenerator.getResult(userString, answer);
 
       if ("4A0B".equals(result)) {
-        System.out.println(userString + " " + result);
+        history.add(userString + " " + result);
+        history.forEach(System.out::println);
         System.out.println("win all correct");
         break;
-      }else {
+      } else {
+        history.add(userString + " " + result);
+        history.forEach(System.out::println);
         remainTimes--;
         if (remainTimes == 0) {
           System.out.println("game over");

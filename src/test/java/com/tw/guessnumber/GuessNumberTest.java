@@ -64,7 +64,60 @@ public class GuessNumberTest {
 
     guessNumber.startGame();
 
-    assertEquals("game over\n" + "the number is: 1234\n", outContent.toString());
+    assertEquals("1235 3A0B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "3456 0A2B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "3456 0A2B\n"
+        + "4567 0A1B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "3456 0A2B\n"
+        + "4567 0A1B\n"
+        + "5678 0A0B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "3456 0A2B\n"
+        + "4567 0A1B\n"
+        + "5678 0A0B\n"
+        + "6789 0A0B\n"
+        + "game over\n"
+        + "the number is: 1234\n", outContent.toString());
 
+  }
+
+  @Test
+  public void shouldListAllGuessHistories() {
+    ByteArrayInputStream in = new ByteArrayInputStream("1235\n2345\n3456\n4567\n5678\n1234\n".getBytes());
+    System.setIn(in);
+
+    guessNumber.startGame();
+
+    assertEquals("1235 3A0B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "3456 0A2B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "3456 0A2B\n"
+        + "4567 0A1B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "3456 0A2B\n"
+        + "4567 0A1B\n"
+        + "5678 0A0B\n"
+        + "1235 3A0B\n"
+        + "2345 0A3B\n"
+        + "3456 0A2B\n"
+        + "4567 0A1B\n"
+        + "5678 0A0B\n"
+        + "1234 4A0B\n"
+        + "win all correct\n", outContent.toString());
   }
 }
