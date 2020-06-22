@@ -34,7 +34,7 @@ public class GuessNumberTest {
 
   @Test
   public void shouldPrintWrongInputWhenInputisNotValid() {
-    ByteArrayInputStream in = new ByteArrayInputStream("ad45\nad45\nad45\nad45\nad45\nad45\n".getBytes());
+    ByteArrayInputStream in = new ByteArrayInputStream("ad45\n1145\nad45\nad45\nad45\nad45\n".getBytes());
     System.setIn(in);
 
     guessNumber.startGame();
@@ -45,5 +45,15 @@ public class GuessNumberTest {
         + "wrong input, try again\n"
         + "wrong input, try again\n"
         + "wrong input, try again\n", outContent.toString());
+  }
+
+  @Test
+  public void shouldPrintCorrectWhenInputIsCorrect() {
+    ByteArrayInputStream in = new ByteArrayInputStream("1234\n".getBytes());
+    System.setIn(in);
+
+    guessNumber.startGame();
+
+    assertEquals("1234 4A0B\n" + "win all correct\n", outContent.toString());
   }
 }

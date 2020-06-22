@@ -28,6 +28,14 @@ public class GuessNumber {
         continue;
       }
 
+      String result = resultGenerator.getResult(userString, answer);
+
+      if ("4A0B".equals(result)) {
+        System.out.println(userString + " " + result);
+        System.out.println("win all correct");
+        break;
+      }
+
     }
 
   }
