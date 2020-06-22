@@ -34,6 +34,12 @@ public class GuessNumber {
         System.out.println(userString + " " + result);
         System.out.println("win all correct");
         break;
+      }else {
+        remainTimes--;
+        if (remainTimes == 0) {
+          System.out.println("game over");
+          System.out.println("the number is: " + answer);
+        }
       }
 
     }

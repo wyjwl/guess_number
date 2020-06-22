@@ -56,4 +56,15 @@ public class GuessNumberTest {
 
     assertEquals("1234 4A0B\n" + "win all correct\n", outContent.toString());
   }
+
+  @Test
+  public void shouldGameOverAfter6WrongTries() {
+    ByteArrayInputStream in = new ByteArrayInputStream("1235\n2345\n3456\n4567\n5678\n6789\n".getBytes());
+    System.setIn(in);
+
+    guessNumber.startGame();
+
+    assertEquals("game over\n" + "the number is: 1234\n", outContent.toString());
+
+  }
 }
